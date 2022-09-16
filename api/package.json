@@ -1,0 +1,24 @@
+{
+  "name": "api_age_word",
+  "version": "0.0.1",
+  "description": "Contiene un listado de palabras de Age of Empires",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "promise-mysql": "^5.2.0"
+  },
+  "devDependencies": {},
+  "type": "module",
+  "keywords": [
+    "Express",
+    "MySQL",
+    "Age-of-Empires"
+  ],
+  "author": "Martiks <giu132@hotmail.com>",
+  "license": "MIT"
+}
