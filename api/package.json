@@ -4,6 +4,8 @@
   "description": "Contiene un listado de palabras de Age of Empires",
   "main": "server.js",
   "scripts": {
+    "dev": "NODE_ENV=development nodemon ./server.mjs",
+    "dev-win": "SET NODE_ENV=development & nodemon ./server.mjs",
     "start": "node server.js"
   },
   "dependencies": {
