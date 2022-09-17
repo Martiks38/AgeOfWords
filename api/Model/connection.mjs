@@ -1,7 +1,11 @@
+import { readFile } from 'fs/promises'
 import mysql from 'promise-mysql'
-import conf from './db.conf.json'
 
-let { db } = await import('../const')
+import { db } from '../const.mjs'
+
+const file = await readFile('./Model/dbConf.json', 'utf-8')
+
+const conf = JSON.parse(file)
 
 let confDB = { ...conf.mysql, ...db }
 
