@@ -1,7 +1,7 @@
 import { readFile } from 'fs/promises'
 import mysql from 'promise-mysql'
 
-import { db } from '../const.mjs'
+import { db } from '../env.mjs'
 
 const file = await readFile('./Model/dbConf.json', 'utf-8')
 
