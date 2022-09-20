@@ -29,7 +29,7 @@ export const checkCreationFields = async (req, res, next) => {
   let verifyPassword = checkPassword(password)
   let verifyEmail = checkEmail(email)
 
-  if (verifyUserName && verifyPassword && verifyEmail) next()
+  if (verifyUserName && verifyPassword && verifyEmail) return next()
 
   res.status(400).json({ message: 'One or more fields are invalid' })
 }
