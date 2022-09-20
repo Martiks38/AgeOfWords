@@ -1,17 +1,17 @@
-import express from 'express'
+import { Router } from 'express'
 import { WordsController } from '../controller/word.controller.mjs'
 import { verifyLength } from '../middleware/verifyLength.mjs'
 
-const router = express.Router()
+const router = Router()
 
 router
   .get('/words', WordsController.getWords)
-  .get('/rand_word', WordsController.getRandomWord)
+  .get('/word/rand', WordsController.getRandomWord)
 
-router.post('/new_word', verifyLength, WordsController.createWord)
+router.post('/word/new', verifyLength, WordsController.createWord)
 
-router.patch('/modify_word', verifyLength, WordsController.updateWords)
+router.patch('/word/modify', verifyLength, WordsController.updateWords)
 
-router.delete('/delete_word', WordsController.deleteWord)
+router.delete('/word/delete', WordsController.deleteWord)
 
 export default router
