@@ -1,10 +1,15 @@
 import express from 'express'
 import cors from 'cors'
+import wordRoutes from './routes/wordRoutes.mjs'
+
+import { createListWords } from './libs/initialSetup.mjs'
+
+import './connection.mjs'
 
 const app = express()
+createListWords()
 
 const { PORT } = await import('./env.mjs')
-import wordRoutes from './routes/wordRoutes.mjs'
 
 const port = PORT || 3000
 
@@ -14,6 +19,6 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-app.use('/', wordRoutes)
+app.use('/api/v1', wordRoutes)
 
 export default app
