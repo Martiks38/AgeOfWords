@@ -1,5 +1,6 @@
 import userModel from '../Model/user.model.mjs'
 import { initialResults, serverError } from '../const.mjs'
+import { json } from 'express'
 
 const getUser = async (req, res) => {
   try {
@@ -63,4 +64,16 @@ const modifyUser = async (req, res) => {
   }
 }
 
-export default { createUser, getUser, getUsers, modifyUser }
+const deleteUser = async (req, res) => {
+  try {
+    const userId = req.userId
+
+    await userModel.findOneAndDelete({ _id: userId })
+
+    res.status(200).json({ message: 'The account was successfully deleted' })
+  } catch (error) {
+    res.status(500).json(serverError)
+  }
+}
+
+export default { createUser, deleteUser, getUser, getUsers, modifyUser }

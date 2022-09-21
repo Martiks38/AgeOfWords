@@ -22,8 +22,8 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-app.use('/api/v1', wordRoutes)
-app.use('/api/v1', userRoutes)
+app.use('/api/v1/word', wordRoutes)
+app.use('/api/v1/user', userRoutes)
 app.use('/api/v1', authRoutes)
 
 export default app
