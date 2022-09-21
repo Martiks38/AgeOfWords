@@ -9,8 +9,8 @@ import { verifyModifyUser } from '../middleware/verifyModifyUser.mjs'
 const router = Router()
 
 router
-  .get('/:id', userController.getUser)
   .get('/users', userController.getUsers)
+  .get('/:id', userController.getUser)
 
 router.post(
   '/create',
