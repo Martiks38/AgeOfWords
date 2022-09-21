@@ -1,0 +1,9 @@
+@use './linearGradient' as lG;
+
+@mixin backgroundText($directionOrDeg, $fontSize, $colors) {
+  @include lG.linearGradient($directionOrDeg, $colors);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: $fontSize;
+}
