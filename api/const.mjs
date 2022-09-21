@@ -14,6 +14,7 @@ const regex = {
   email: /^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$/,
   password: /^\S{8,20}$/,
   username: /^\w{5,16}$/i,
+  results: /^try_[1-6]|total/,
 }
 
 export { initialResults, regex, serverError }
