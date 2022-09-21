@@ -1,0 +1,28 @@
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:string';
+
+@use '../consts/maps_lists' as maps;
+
+@mixin linearGradient($directionOrDeg, $colors) {
+  $list: ();
+
+  @for $i from 1 through list.length($colors) {
+    $list: append($list, list.nth($colors, $i), comma);
+  }
+
+  @if (map.has-key(maps.$map-directions, $directionOrDeg)) {
+    background-image: linear-gradient(
+      map.get(maps.$map-directions, $directionOrDeg),
+      $list
+    );
+    background-repeat: no-repeat;
+  } @else if not (map.has-key(maps.$map-directions, $directionOrDeg)) {
+    @if not(index('deg', string.slice($directionOrDeg, -3))) {
+      @error "#{$directionOrDeg} is not a correct parameter.";
+    } @else {
+      background-image: linear-gradient(string.unquote($directionOrDeg), $list);
+      background-repeat: no-repeat;
+    }
+  }
+}

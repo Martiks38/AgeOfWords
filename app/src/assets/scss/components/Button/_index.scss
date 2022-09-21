@@ -1,3 +1,5 @@
+@use '../../mixins/backgroundText' as bgText;
+
 .button {
   display: block;
   padding: 0.4rem 1rem;
@@ -10,18 +12,9 @@
     border-right-style: ridge;
 
     &__letter {
-      -webkit-background-clip: text;
-      background-clip: text;
-      background-image: linear-gradient(to top, #df950b 25%, #fff);
-      color: transparent;
+      @include bgText.backgroundText('top', 1.4rem, (#df950b 25%) #fff);
       font-family: 'Roboto Slab', system-ui, -apple-system, 'Segoe UI', Ubuntu,
         'Open Sans', 'Helvetica Neue', sans-serif;
-      font-size: 1rem;
-      font-size: clamp(
-        1rem,
-        0.9423076923076923rem + 0.2564102564102564vw,
-        1.25rem
-      );
     }
   }
 }
