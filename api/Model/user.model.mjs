@@ -42,4 +42,16 @@ userSchema.pre('save', async function (next) {
   next()
 })
 
+userSchema.pre('findOneAndUpdate', async function (next) {
+  const userUpdate = this._update
+
+  if (userUpdate?.password) {
+    const hash = await bcrypt.hash(userUpdate.password, 10)
+
+    userUpdate.password = hash
+  }
+
+  next()
+})
+
 export default model('User', userSchema)

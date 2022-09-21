@@ -46,4 +46,21 @@ const createUser = async (req, res) => {
   }
 }
 
-export default { createUser, getUser, getUsers }
+const modifyUser = async (req, res) => {
+  try {
+    const { field, newValue } = req.body
+
+    const userId = req.userId
+
+    await userModel.findOneAndUpdate({ _id: userId }, { [field]: newValue })
+
+    res
+      .status(200)
+      .json({ message: `The ${field} has been changed successfully` })
+  } catch (error) {
+    console.log(error)
+    res.status(500).json(serverError)
+  }
+}
+
+export default { createUser, getUser, getUsers, modifyUser }
