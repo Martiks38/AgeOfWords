@@ -29,10 +29,10 @@ const getUsers = async (req, res) => {
 
 const createUser = async (req, res) => {
   try {
-    const { userName, password, email } = req.body
+    const { username, password, email } = req.body
 
     let newUser = new userModel({
-      userName,
+      username,
       password,
       email,
       results: initialResults,
