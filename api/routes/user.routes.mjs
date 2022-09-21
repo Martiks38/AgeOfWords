@@ -24,4 +24,6 @@ router.patch(
   userController.modifyUser
 )
 
+router.delete('/user/delete', verifyToken, userController.deleteUser)
+
 export default router
