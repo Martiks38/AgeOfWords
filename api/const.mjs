@@ -10,4 +10,10 @@ const initialResults = {
   total: 0,
 }
 
-export { initialResults, serverError }
+const regex = {
+  email: /^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$/,
+  password: /^\S{8,20}$/,
+  username: /^\w{5,16}$/i,
+}
+
+export { initialResults, regex, serverError }
