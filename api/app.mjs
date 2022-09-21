@@ -1,7 +1,9 @@
 import express from 'express'
 import cors from 'cors'
-import wordRoutes from './routes/wordRoutes.mjs'
+
+import authRoutes from './routes/auth.routes.mjs'
 import userRoutes from './routes/user.routes.mjs'
+import wordRoutes from './routes/word.routes.mjs'
 
 import { createListWords } from './libs/initialSetup.mjs'
 
@@ -22,5 +24,6 @@ app.use(express.urlencoded({ extended: false }))
 
 app.use('/api/v1', wordRoutes)
 app.use('/api/v1', userRoutes)
+app.use('/api/v1', authRoutes)
 
 export default app

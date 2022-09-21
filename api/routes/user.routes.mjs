@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import userController from '../Controller/user.controller.mjs'
-import { AccountExist } from '../middleware/accountExist.mjs'
+
+import { accountExist } from '../middleware/accountExist.mjs'
 import { checkCreationFields } from '../middleware/verifyAccountCreation.mjs'
 
 const router = Router()
@@ -11,7 +12,7 @@ router
 
 router.post(
   '/user/create',
-  [checkCreationFields, AccountExist],
+  [checkCreationFields, accountExist],
   userController.createUser
 )
 
