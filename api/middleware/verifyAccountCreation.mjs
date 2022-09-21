@@ -1,9 +1,9 @@
-const checkUserName = (userName) => {
-  if (typeof userName !== 'string') return false
+const checkUsername = (username) => {
+  if (typeof username !== 'string') return false
 
-  let regexUserName = /^\w{5,16}$/i
+  let regexusername = /^\w{5,16}$/i
 
-  return regexUserName.test(userName)
+  return regexusername.test(username)
 }
 
 const checkPassword = (password) => {
@@ -23,13 +23,13 @@ const checkEmail = (email) => {
 }
 
 export const checkCreationFields = async (req, res, next) => {
-  const { userName, password, email } = req.body
+  const { username, password, email } = req.body
 
-  let verifyUserName = checkUserName(userName)
+  let verifyusername = checkUsername(username)
   let verifyPassword = checkPassword(password)
   let verifyEmail = checkEmail(email)
 
-  if (verifyUserName && verifyPassword && verifyEmail) return next()
+  if (verifyusername && verifyPassword && verifyEmail) return next()
 
   res.status(400).json({ message: 'One or more fields are invalid' })
 }
