@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import { WordsController } from '../controller/word.controller.mjs'
+
 import { verifyLength } from '../middleware/verifyLength.mjs'
 
 const router = Router()

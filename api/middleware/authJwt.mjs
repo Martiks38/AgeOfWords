@@ -1,6 +1,6 @@
+import userModel from '../Model/user.model.mjs'
 import jwt from 'jsonwebtoken'
 
-import userModel from '../Model/user.model.mjs'
 import { SECRET } from '../env.mjs'
 
 export const verifyToken = async (req, res, next) => {

@@ -1,5 +1,6 @@
-import { serverError } from '../const.mjs'
 import wordsModel from '../model/word.model.mjs'
+
+import { serverError } from '../const.mjs'
 
 async function getWords(req, res) {
   try {

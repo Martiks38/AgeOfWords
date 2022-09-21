@@ -1,6 +1,6 @@
 import userModel from '../Model/user.model.mjs'
+
 import { initialResults, serverError } from '../const.mjs'
-import { json } from 'express'
 
 const getUser = async (req, res) => {
   try {

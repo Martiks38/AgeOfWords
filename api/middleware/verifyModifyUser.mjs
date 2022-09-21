@@ -1,5 +1,6 @@
-import { regex, serverError } from '../const.mjs'
 import userModel from '../Model/user.model.mjs'
+
+import { regex, serverError } from '../const.mjs'
 
 export const verifyModifyUser = async (req, res, next) => {
   try {

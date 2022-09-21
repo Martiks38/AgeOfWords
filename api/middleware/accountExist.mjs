@@ -1,5 +1,6 @@
-import { serverError } from '../const.mjs'
 import userModel from '../Model/user.model.mjs'
+
+import { serverError } from '../const.mjs'
 
 export const accountExist = async (req, res, next) => {
   try {
