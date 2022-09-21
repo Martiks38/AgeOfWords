@@ -13,7 +13,7 @@ function Home() {
           </figcaption>
         </figure>
         <Link href="/">
-          <a>Play</a>
+          <a className="play-game">Play</a>
         </Link>
       </main>
     </>
