@@ -1,6 +1,17 @@
+import { useState } from 'react'
 import { Link } from 'wouter'
+import { checkField } from '../../utils/checkForm'
+
+import { SignUpForm } from '../../interfaces'
+import { createUser } from '../../services/signUp'
 
 function SignUp() {
+  const [form, setForm] = useState<SignUpForm>({
+    message: '',
+    error: false,
+    errorField: {},
+  })
+
   return (
     <main>
       <figure className="container__logo">
@@ -8,7 +19,8 @@ function SignUp() {
       </figure>
       <article className="container__form">
         <h1 className="signUp__title">Sign up to Age of Words</h1>
-        <form className="form">
+        {form.error && <p className="form__error">{form.message}</p>}
+        <form className="form" onSubmit={(e) => createUser(e, setForm)}>
           <label className="form__label" htmlFor="username">
             Username
           </label>
@@ -17,31 +29,50 @@ function SignUp() {
             type="text"
             name="username"
             id="username"
+            autoComplete="off"
+            autoFocus={true}
+            required
+            onBlur={(e) => checkField(e, form.errorField, setForm)}
           />
           <label className="form__label" htmlFor="email">
             Email
           </label>
-          <input className="form__input" type="text" name="email" id="email" />
+          <input
+            className="form__input"
+            type="email"
+            name="email"
+            id="email"
+            autoComplete="off"
+            required
+            onBlur={(e) => checkField(e, form.errorField, setForm)}
+          />
           <label className="form__label" htmlFor="password">
             Password
           </label>
           <input
             className="form__input"
-            type="text"
+            type="password"
             name="password"
             id="password"
+            autoComplete="true"
+            required
+            onBlur={(e) => checkField(e, form.errorField, setForm)}
           />
-          <button className="button  button_form form__button" type="submit">
+          <button
+            className={'button button_form form__button'}
+            type="submit"
+            disabled={form.error}
+          >
             Sign Up
           </button>
         </form>
+        <span className="signUp__signIn">
+          <span>You have an account?</span>
+          <Link href="/login">
+            <a className="link">Sign In</a>
+          </Link>
+        </span>
       </article>
-      <span className="signUp__signIn">
-        <span>You have an account?</span>
-        <Link href="/login">
-          <a className="link">Sign In</a>
-        </Link>
-      </span>
     </main>
   )
 }
