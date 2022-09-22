@@ -32,17 +32,20 @@
 }
 
 .container__logo {
-  display: flex;
-  flex-direction: column;
   width: -webkit-min-content;
   width: -moz-min-content;
   width: min-content;
   height: auto;
-  margin: 2rem auto 3rem;
-  padding: 2rem 2rem 1rem;
-  background-color: #262620;
-  border-radius: 25px / 40px;
-  gap: 1rem;
+
+  &_home {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem auto 3rem;
+    padding: 2rem 2rem 1rem;
+    background-color: #262620;
+    border-radius: 25px / 40px;
+    gap: 1rem;
+  }
 
   &__img {
     max-width: 20rem;

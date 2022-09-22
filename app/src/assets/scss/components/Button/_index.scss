@@ -17,4 +17,17 @@
         'Open Sans', 'Helvetica Neue', sans-serif;
     }
   }
+
+  &_form {
+    margin: 0 auto;
+    background-color: #090f22;
+    font-family: Prompt;
+    border-radius: 6px;
+    border: none;
+
+    &:hover {
+      background-color: #12255d;
+      cursor: pointer;
+    }
+  }
 }

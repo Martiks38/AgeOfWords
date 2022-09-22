@@ -1,0 +1,33 @@
+.container__form {
+  width: 100%;
+  padding: 0 2rem;
+}
+
+.signUP__logo {
+  display: block;
+  height: auto;
+  width: 3rem;
+  background-color: #000;
+  border-radius: 50%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+}
+
+.signUp__title {
+  font-size: 1.35rem;
+  font-family: Prompt;
+  text-align: center;
+}
+
+.signUp__signIn {
+  display: flex;
+  max-width: 18rem;
+  width: 100%;
+  margin: 1rem auto 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  justify-content: space-between;
+  font-family: Prompt;
+}
