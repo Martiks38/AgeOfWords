@@ -7,7 +7,7 @@
   max-width: 20rem;
   background-image: linear-gradient(to bottom, #ffde8f, #ffde8f);
   border: solid 3px #ffdf91;
-  border-radius: 6px;
+  border-radius: 8px;
   box-shadow: 0 2px 100px #0007;
   overflow: hidden;
   z-index: 2;
@@ -41,30 +41,63 @@
   }
 
   &__button,
-  &__input,
-  &__label {
+  &__input {
     z-index: 3;
   }
 
   &__label {
+    position: relative;
     margin-bottom: 0.5rem;
     font-family: 'Roboto Slab';
     color: #000;
     letter-spacing: 0.4px;
+    z-index: 4;
+
+    &::after {
+      content: '?';
+      top: 2.45rem;
+      right: 0.8rem;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.4rem;
+      width: -webkit-min-content;
+      width: -moz-min-content;
+      width: min-content;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.538);
+      border: solid thin #fff;
+      border-radius: 50%;
+    }
   }
 
   &__input {
     margin-bottom: 1rem;
-    padding: 0.4rem 1rem;
+    padding: 0.6rem 1rem;
     background-color: #364561;
     border-radius: 6px;
-    border: solid 3px #1f2d3f;
+    border: solid 2px #1f2d3f;
     outline: none;
 
     &:focus {
-      outline: solid 4px #1199a8;
-      outline-offset: -3px;
+      outline: solid 2px #1199a8;
+      outline-offset: -2px;
     }
+  }
+
+  &__error {
+    max-width: 20rem;
+    width: inherit;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.8rem;
+    background-color: rgba(113, 12, 12, 0.453);
+    border: solid thin rgb(248, 38, 38);
+    border-radius: 8px;
+    font-family: Prompt;
+    font-family: 16px;
+    text-align: center;
   }
 
   &__button {

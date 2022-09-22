@@ -23,11 +23,13 @@
 
 .signUp__signIn {
   display: flex;
-  max-width: 18rem;
-  width: 100%;
+  max-width: 20rem;
+  width: inherit;
   margin: 1rem auto 0;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding: 1rem;
+  background-color: #161925;
   justify-content: space-between;
   font-family: Prompt;
+  border: solid thin #fff;
+  border-radius: 8px;
 }
