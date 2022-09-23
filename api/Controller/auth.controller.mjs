@@ -21,7 +21,7 @@ const signUp = async (req, res) => {
       expiresIn: 86400 * 7, // one week
     })
 
-    res.status(201).json({ token, user })
+    res.status(201).json({ token, newUser })
   } catch (error) {
     res.status(500).json(serverError)
   }
