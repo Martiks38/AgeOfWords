@@ -4,7 +4,7 @@ const wordSchema = new Schema(
   {
     words: [String],
   },
-  { versionKey: false, timestamps: false }
+  { versionKey: false, timestamps: true }
 )
 
 export default model('Words', wordSchema)

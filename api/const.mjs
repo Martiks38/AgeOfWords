@@ -1,3 +1,20 @@
 const serverError = { status: 500, message: 'Internal Server Error' }
 
-export { serverError }
+const initialResults = {
+  try_1: 0,
+  try_2: 0,
+  try_3: 0,
+  try_4: 0,
+  try_5: 0,
+  try_6: 0,
+  total: 0,
+}
+
+const regex = {
+  email: /^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$/,
+  password: /^\S{8,20}$/,
+  username: /^\w{5,16}$/i,
+  results: /^try_[1-6]|total/,
+}
+
+export { initialResults, regex, serverError }
