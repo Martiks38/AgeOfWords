@@ -1,3 +1,11 @@
 type ErrorField = { [index: string]: boolean }
 
-export type { ErrorField }
+type UserConnectedContextState = {
+  isConnected: {
+    username: string
+    connected: boolean
+  }
+  toggleConnected: (connected: boolean, username?: string) => void
+}
+
+export type { UserConnectedContextState, ErrorField }
