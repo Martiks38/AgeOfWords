@@ -19,6 +19,7 @@ const checkField = (
       message: 'One or more fields are invalid',
       error: true,
       errorField: errorObj,
+      checkForm: false,
     })
 
     event.currentTarget.classList.add('invalidField')
@@ -34,11 +35,13 @@ const checkField = (
           message: 'One or more fields are invalid',
           error: true,
           errorField: errorObj,
+          checkForm: false,
         })
       : setForm({
           message: '',
           error: false,
           errorField: errorObj,
+          checkForm: false,
         })
 
     event.currentTarget.classList.remove('invalidField')
