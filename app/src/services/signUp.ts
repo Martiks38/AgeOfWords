@@ -30,11 +30,18 @@ export const createUser = async (
       }
 
       let res = await fetch('http://localhost:3030/api/v1/signup', options)
-      let data = await res.json()
+      let data: any = await res.json()
 
-      console.log(data)
-    } catch (error) {
-      console.log(error)
+      window.localStorage.setItem(
+        'AWSession',
+        JSON.stringify({
+          token: data.token,
+          username: data.newUser.username,
+          expires: new Date(86400 * 7).toUTCString(),
+        })
+      )
+    } catch (error: any) {
+      setForm({ message: error.message, error: true, errorField: {} })
     }
   } else {
     let errorObj: ErrorField = {}

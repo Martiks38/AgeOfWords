@@ -58,21 +58,17 @@ function SignUp() {
             required
             onBlur={(e) => checkField(e, form.errorField, setForm)}
           />
-          <button
-            className={'button button_form form__button'}
-            type="submit"
-            disabled={form.error}
-          >
-            Sign Up
-          </button>
-        </form>
-        <span className="signUp__signIn">
-          <span>You have an account?</span>
-          <Link href="/login">
-            <a className="link">Sign In</a>
-          </Link>
-        </span>
-      </article>
+            <button className={'button button_form form__button'} type="submit">
+              Sign Up
+            </button>
+          </form>
+          <span className="signUp__signIn">
+            <span>You have an account?</span>
+            <Link href="/login">
+              <a className="link">Sign In</a>
+            </Link>
+          </span>
+        </article>
     </main>
   )
 }
