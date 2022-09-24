@@ -1,4 +1,5 @@
 import { Link } from 'wouter'
+import Icon from "../Icon"
 import { useUserConnected } from '../../hooks/useUserConnected'
 
 function Header() {
@@ -14,7 +15,7 @@ function Header() {
         </Link>
       </figure>
       {isConnected.connected ? (
-        <div>{isConnected.username.slice(0, 1)}</div>
+        <Icon>{isConnected.username.slice(0, 1)}</Icon>
       ) : (
         <nav className="navBar">
           <Link href="/">
@@ -22,7 +23,7 @@ function Header() {
               <span className="button_home__letter">Sign in</span>
             </a>
           </Link>
-          <Link href="/">
+          <Link href="/signup">
             <a className="button button_home">
               <span className="button_home__letter">Sign up</span>
             </a>
