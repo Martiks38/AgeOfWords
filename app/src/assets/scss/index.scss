@@ -41,11 +41,14 @@ figure {
   margin: 0 auto;
 }
 
-#root {
+.g-center {
   display: grid;
-  place-content: center;
-  min-height: 100vh;
-  grid-template-columns: repeat(1, 1fr);
+  height: 100vh;
+
+  & > * {
+    place-self: center;
+    width: 100vw;
+  }
 }
 
 .link {

@@ -55,9 +55,9 @@
 
     &::after {
       content: '?';
+      position: absolute;
       top: 2.45rem;
       right: 0.8rem;
-      position: absolute;
       display: flex;
       align-items: center;
       justify-content: center;
