@@ -5,7 +5,8 @@ import { ErrorField } from '../types'
 
 export const createUser = async (
   event: FormEvent<HTMLFormElement>,
-  setForm: Dispatch<SetStateAction<SignUpForm>>
+  setForm: Dispatch<SetStateAction<SignUpForm>>,
+  toggleConnected: (connected: boolean, username?: string) => void
 ) => {
   const { username, email, password } = event.currentTarget
 
@@ -32,16 +33,32 @@ export const createUser = async (
       let res = await fetch('http://localhost:3030/api/v1/signup', options)
       let data: any = await res.json()
 
+      let dateOfExpiry = Date.now() + 86400 * 7
+
       window.localStorage.setItem(
         'AWSession',
         JSON.stringify({
           token: data.token,
           username: data.newUser.username,
-          expires: new Date(86400 * 7).toUTCString(),
+          expires: new Date(dateOfExpiry).toUTCString(),
         })
       )
+
+      setForm({
+        message: '',
+        error: false,
+        errorField: {},
+        checkForm: true,
+      })
+
+      toggleConnected(true, data.newUser.username)
     } catch (error: any) {
-      setForm({ message: error.message, error: true, errorField: {} })
+      setForm({
+        message: error.message,
+        error: true,
+        errorField: {},
+        checkForm: false,
+      })
     }
   } else {
     let errorObj: ErrorField = {}
@@ -55,6 +72,7 @@ export const createUser = async (
       message: 'One or more fields are invalid',
       error: true,
       errorField: errorObj,
+      checkForm: false,
     })
   }
 }
