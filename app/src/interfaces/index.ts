@@ -4,6 +4,7 @@ interface SignUpForm {
   message: string
   error: boolean
   errorField: ErrorField
+  checkForm: boolean
 }
 
 interface Regex {
