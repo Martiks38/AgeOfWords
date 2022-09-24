@@ -13,51 +13,52 @@ function SignUp() {
   })
 
   return (
-    <main>
-      <figure className="container__logo">
-        <img className="signUP__logo" src="logo.png" alt="Age of Words" />
-      </figure>
-      <article className="container__form">
-        <h1 className="signUp__title">Sign up to Age of Words</h1>
-        {form.error && <p className="form__error">{form.message}</p>}
-        <form className="form" onSubmit={(e) => createUser(e, setForm)}>
-          <label className="form__label" htmlFor="username">
-            Username
-          </label>
-          <input
-            className="form__input"
-            type="text"
-            name="username"
-            id="username"
-            autoComplete="off"
-            autoFocus={true}
-            required
-            onBlur={(e) => checkField(e, form.errorField, setForm)}
-          />
-          <label className="form__label" htmlFor="email">
-            Email
-          </label>
-          <input
-            className="form__input"
-            type="email"
-            name="email"
-            id="email"
-            autoComplete="off"
-            required
-            onBlur={(e) => checkField(e, form.errorField, setForm)}
-          />
-          <label className="form__label" htmlFor="password">
-            Password
-          </label>
-          <input
-            className="form__input"
-            type="password"
-            name="password"
-            id="password"
-            autoComplete="true"
-            required
-            onBlur={(e) => checkField(e, form.errorField, setForm)}
-          />
+    <main className="g-center">
+      <section>
+        <figure className="container__logo">
+          <img className="signUP__logo" src="logo.png" alt="Age of Words" />
+        </figure>
+        <article className="container__form">
+          <h1 className="signUp__title">Sign up to Age of Words</h1>
+          {form.error && <p className="form__error">{form.message}</p>}
+          <form className="form" onSubmit={(e) => createUser(e, setForm)}>
+            <label className="form__label" htmlFor="username">
+              Username
+            </label>
+            <input
+              className="form__input"
+              type="text"
+              name="username"
+              id="username"
+              autoComplete="off"
+              autoFocus={true}
+              required
+              onBlur={(e) => checkField(e, form.errorField, setForm)}
+            />
+            <label className="form__label" htmlFor="email">
+              Email
+            </label>
+            <input
+              className="form__input"
+              type="email"
+              name="email"
+              id="email"
+              autoComplete="off"
+              required
+              onBlur={(e) => checkField(e, form.errorField, setForm)}
+            />
+            <label className="form__label" htmlFor="password">
+              Password
+            </label>
+            <input
+              className="form__input"
+              type="password"
+              name="password"
+              id="password"
+              autoComplete="true"
+              required
+              onBlur={(e) => checkField(e, form.errorField, setForm)}
+            />
             <button className={'button button_form form__button'} type="submit">
               Sign Up
             </button>
@@ -69,6 +70,7 @@ function SignUp() {
             </Link>
           </span>
         </article>
+      </section>
     </main>
   )
 }

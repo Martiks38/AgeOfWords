@@ -12,9 +12,11 @@ function Home() {
             <h1 className="container__logo__title">Age of Words</h1>
           </figcaption>
         </figure>
-        <Link href="/">
-          <a className="play-game">Play</a>
-        </Link>
+        <div className="play-game__content">
+          <Link href="/">
+            <a className="play-game__link">Play</a>
+          </Link>
+        </div>
       </main>
     </>
   )
