@@ -39,7 +39,7 @@ export const createUser = async (
         'AWSession',
         JSON.stringify({
           token: data.token,
-          username: data.newUser.username,
+          username: username.value,
           expires: new Date(dateOfExpiry).toUTCString(),
         })
       )
@@ -51,7 +51,7 @@ export const createUser = async (
         checkForm: true,
       })
 
-      toggleConnected(true, data.newUser.username)
+      toggleConnected(true, username.value)
     } catch (error: any) {
       setForm({
         message: error.message,
