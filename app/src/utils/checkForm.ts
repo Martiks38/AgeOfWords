@@ -1,13 +1,13 @@
 import { regex } from '../const/regex'
 
 import { Dispatch, FocusEvent, SetStateAction } from 'react'
-import { SignUpForm } from '../interfaces'
+import { StateForm } from '../interfaces'
 import { ErrorField } from '../types'
 
 const checkField = (
   event: FocusEvent<HTMLInputElement>,
   errorField: ErrorField,
-  setForm: Dispatch<SetStateAction<SignUpForm>>
+  setForm: Dispatch<SetStateAction<StateForm>>
 ) => {
   const { id, value } = event.currentTarget
   let errorObj: ErrorField = {}
@@ -15,14 +15,16 @@ const checkField = (
   if (!regex[id].test(value)) {
     errorObj = { ...errorField, [id]: true }
 
-    setForm({
-      message: 'One or more fields are invalid',
-      error: true,
-      errorField: errorObj,
-      checkForm: false,
-    })
+    setTimeout(() => {
+      setForm({
+        message: 'One or more fields are invalid',
+        error: true,
+        errorField: errorObj,
+        checkForm: false,
+      })
 
-    event.currentTarget.classList.add('invalidField')
+      event.currentTarget.classList.add('invalidField')
+    }, 500)
   } else {
     errorObj = { ...errorField, [id]: false }
 
