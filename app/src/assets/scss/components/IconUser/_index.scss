@@ -1,0 +1,54 @@
+.iconUser {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+  width: 2.5rem;
+  border: solid 2px #b9872e;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-family: 'Roboto Slab';
+}
+
+.accountMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  position: fixed;
+  top: 3rem;
+  right: 1.5rem;
+  padding: 1rem;
+  background-color: #171b27;
+  font-family: 'Prompt';
+  border-radius: 6px;
+  border: solid 2px #b9872e;
+  list-style: none;
+
+  &__item {
+    display: block;
+    padding: 0.4rem 0.8rem;
+    color: #fff;
+    cursor: pointer;
+
+    &:hover {
+      border-radius: 6px;
+      background-color: #1a3585;
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -1.2rem;
+    right: 1rem;
+    height: 0.8rem;
+    border-style: solid;
+    border-width: 0.6rem;
+    border-color: transparent transparent #b9872e transparent;
+  }
+}
+
+.actionWarning {
+  color: #ff7a7a;
+}
