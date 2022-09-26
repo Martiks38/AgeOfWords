@@ -1,13 +1,13 @@
 import { useEffect, useLayoutEffect, useState } from 'react'
 import { Link, useLocation } from 'wouter'
-
 import { useUserConnected } from '../../hooks/useUserConnected'
-import { createUser } from '../../services/signUp'
+import { StateForm } from '../../interfaces'
+import { loginUser } from '../../services/signIn'
 import { checkField } from '../../utils/checkForm'
 
-import { StateForm } from '../../interfaces'
+function SignIn() {
+  const { toggleConnected } = useUserConnected()
 
-function SignUp() {
   const [form, setForm] = useState<StateForm>({
     message: '',
     error: false,
@@ -16,7 +16,6 @@ function SignUp() {
   })
 
   const [, setLocation] = useLocation()
-  const { toggleConnected } = useUserConnected()
 
   useLayoutEffect(() => {
     if (localStorage.getItem('AWSession')) return setLocation('/')
@@ -33,11 +32,11 @@ function SignUp() {
           <img className="signUP__logo" src="logo.png" alt="Age of Words" />
         </figure>
         <article className="container__form">
-          <h1 className="signUp__title">Sign up to Age of Words</h1>
+          <h1 className="signUp__title">Sign in to Age of Words</h1>
           {form.error && <p className="form__error">{form.message}</p>}
           <form
             className="form"
-            onSubmit={(e) => createUser(e, setForm, toggleConnected)}
+            onSubmit={(e) => loginUser(e, setForm, toggleConnected)}
           >
             <label className="form__label" htmlFor="username">
               Username
@@ -49,18 +48,6 @@ function SignUp() {
               id="username"
               autoComplete="off"
               autoFocus={true}
-              required
-              onBlur={(e) => checkField(e, form.errorField, setForm)}
-            />
-            <label className="form__label" htmlFor="email">
-              Email
-            </label>
-            <input
-              className="form__input"
-              type="email"
-              name="email"
-              id="email"
-              autoComplete="off"
               required
               onBlur={(e) => checkField(e, form.errorField, setForm)}
             />
@@ -77,13 +64,13 @@ function SignUp() {
               onBlur={(e) => checkField(e, form.errorField, setForm)}
             />
             <button className={'button button_form form__button'} type="submit">
-              Sign Up
+              Log In
             </button>
           </form>
           <span className="signUp__signIn">
-            <span>You have an account?</span>
-            <Link href="/login">
-              <a className="link">Sign In</a>
+            <span>New to Age of Words?</span>
+            <Link href="/signup">
+              <a className="link">Sign Up</a>
             </Link>
           </span>
         </article>
@@ -92,4 +79,4 @@ function SignUp() {
   )
 }
 
-export default SignUp
+export default SignIn
