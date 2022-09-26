@@ -3,7 +3,7 @@ import IconUser from '../IconUser'
 import { useUserConnected } from '../../hooks/useUserConnected'
 
 function Header() {
-  const { isConnected, toggleConnected } = useUserConnected()
+  const { isConnected } = useUserConnected()
 
   return (
     <header className="headerPage">
@@ -18,7 +18,7 @@ function Header() {
         <IconUser letter={isConnected.username.slice(0, 1)} />
       ) : (
         <nav className="navBar">
-          <Link href="/">
+          <Link href="/login">
             <a className="button button_home">
               <span className="button_home__letter">Sign in</span>
             </a>

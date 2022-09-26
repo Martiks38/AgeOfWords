@@ -1,6 +1,6 @@
 import { ErrorField } from '../types'
 
-interface SignUpForm {
+interface StateForm {
   message: string
   error: boolean
   errorField: ErrorField
@@ -14,4 +14,4 @@ interface Regex {
   username: RegExp
 }
 
-export type { Regex, SignUpForm }
+export type { Regex, StateForm }
