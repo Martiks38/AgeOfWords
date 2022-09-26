@@ -1,11 +1,11 @@
 import { Dispatch, FormEvent, SetStateAction } from 'react'
 import { regex } from '../const/regex'
-import { SignUpForm } from '../interfaces'
+import { StateForm } from '../interfaces'
 import { ErrorField } from '../types'
 
 export const createUser = async (
   event: FormEvent<HTMLFormElement>,
-  setForm: Dispatch<SetStateAction<SignUpForm>>,
+  setForm: Dispatch<SetStateAction<StateForm>>,
   toggleConnected: (connected: boolean, username?: string) => void
 ) => {
   const { username, email, password } = event.currentTarget
@@ -65,8 +65,8 @@ export const createUser = async (
 
     // Check which fields are invalid and adds them to errorObj
     if (!passUsername) errorObj[username.id] = true
-    if (!passUsername) errorObj[username.id] = true
-    if (!passUsername) errorObj[username.id] = true
+    if (!passEmail) errorObj[email.id] = true
+    if (!passPassword) errorObj[password.id] = true
 
     setForm({
       message: 'One or more fields are invalid',
