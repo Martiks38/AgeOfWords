@@ -1,6 +1,7 @@
-import { signOut } from '../../utils/signOut'
 import { Link } from 'wouter'
+
 import { useUserConnected } from '../../hooks/useUserConnected'
+import { signOut } from '../../utils/signOut'
 import { toggleViewMenu } from '../../utils/toggleViewMenu'
 
 function IconUser({ letter }: { letter: string }) {
@@ -9,11 +10,11 @@ function IconUser({ letter }: { letter: string }) {
   return (
     <>
       <div className="iconUser" onClick={toggleViewMenu}>
-        {letter}
+        {letter.toUpperCase()}
       </div>
       <ul className="accountMenu hidden">
         <li>
-          <Link href="/#">
+          <Link href="/setting">
             <a className="accountMenu__item">Account settings</a>
           </Link>
         </li>
