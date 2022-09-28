@@ -33,6 +33,9 @@ const signIn = async (req, res) => {
 
     const user = await userModel.findOne({ username })
 
+    if (!user)
+      return res.status(404).json({ message: 'The account does not exist' })
+
     const matchPassword = await userModel.comparePassword(
       password,
       user.password

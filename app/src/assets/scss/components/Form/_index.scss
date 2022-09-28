@@ -70,6 +70,19 @@
       border: solid thin #fff;
       border-radius: 50%;
     }
+
+    &_forgotPassword {
+      display: flex;
+      justify-content: space-between;
+
+      & a {
+        color: #004d6d;
+      }
+
+      & a:hover {
+        text-decoration: underline;
+      }
+    }
   }
 
   &__input {
@@ -96,8 +109,7 @@
     background-color: rgba(113, 12, 12, 0.453);
     border: solid thin rgb(248, 38, 38);
     border-radius: 8px;
-    font-family: Prompt;
-    font-family: 16px;
+    font-family: Prompt, 'Open Sans', 'Helvetica Neue', sans-serif;
     text-align: center;
   }
 
@@ -105,5 +117,34 @@
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
+  }
+}
+
+.formSetting__fieldset {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  width: 20rem;
+  border: solid 2px #b8853b;
+  border-radius: 6px;
+  gap: 1rem;
+
+  & input {
+    margin-bottom: 1rem;
+    padding: 0.6rem 1rem;
+    background-color: #364561;
+    color: #fff;
+    border-radius: 6px;
+    border: solid 2px #1f2d3f;
+    outline: none;
+
+    &:focus {
+      outline: solid 2px #1199a8;
+      outline-offset: -2px;
+    }
+  }
+
+  @media screen and (max-width: 31.25rem) {
+    margin: 0 auto;
   }
 }

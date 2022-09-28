@@ -1,7 +1,8 @@
 import { createContext, useLayoutEffect, useState } from 'react'
-import { UserConnectedContextState } from '../types'
+
 import { getDataUser } from '../utils/getDataUser'
 
+import { UserConnectedContextState } from '../types'
 type props = { children: JSX.Element | JSX.Element[] }
 
 const initialConnection = {
@@ -32,7 +33,7 @@ function UserProvider({ children }: props) {
   }
 
   return (
-    <UserCtx.Provider value={{ isConnected, toggleConnected }}>
+    <UserCtx.Provider value={{ isConnected, setIsConnected, toggleConnected }}>
       {children}
     </UserCtx.Provider>
   )

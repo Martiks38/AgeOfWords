@@ -1,9 +1,11 @@
-import { Dispatch, FormEvent, SetStateAction } from 'react'
+import { FormEvent } from 'react'
+
 import { StateForm } from '../interfaces'
+import { SetState } from '../types'
 
 export const loginUser = async (
   event: FormEvent<HTMLFormElement>,
-  setForm: Dispatch<SetStateAction<StateForm>>,
+  setForm: SetState<StateForm>,
   toggleConnected: (connected: boolean, username?: string) => void
 ) => {
   const { username, password } = event.currentTarget
@@ -24,6 +26,8 @@ export const loginUser = async (
 
     let res = await fetch('http://localhost:3030/api/v1/signin', options)
     let data: any = await res.json()
+
+    if (res.status < 200 || res.status > 299) throw data
 
     let dateOfExpiry = Date.now() + 86400 * 7
 

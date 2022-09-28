@@ -1,4 +1,5 @@
 @use '../../mixins/backgroundText' as bgText;
+@use '../../mixins/linearGradient' as lg;
 
 .button {
   display: block;
@@ -12,9 +13,30 @@
     border-right-style: ridge;
 
     &__letter {
+      font-family: 'Roboto Slab';
+
       @include bgText.backgroundText('top', 1.4rem, (#df950b 25%) #fff);
-      font-family: 'Roboto Slab', system-ui, -apple-system, 'Segoe UI', Ubuntu,
-        'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+  }
+
+  &_accountDelete {
+    background-color: #171b27;
+    border: solid thin #fff;
+    border-radius: 6px;
+    color: #ff817b;
+    font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    &:disabled {
+      background-color: #0d0e13;
+      border: solid thin rgb(100, 100, 100);
+      border-radius: 6px;
+      color: #ff6f68;
+    }
+
+    &:not(:disabled):hover {
+      background-color: #a81f1b;
+      border-color: #f85149;
+      color: #fff;
     }
   }
 
@@ -22,7 +44,8 @@
     margin: 0 auto;
     background-color: #090f22;
     color: #fff;
-    font-family: Prompt;
+    font-family: Prompt, Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      'Open Sans', 'Helvetica Neue', sans-serif;
     border-radius: 6px;
     border: none;
 
@@ -30,10 +53,21 @@
       background-color: #12255d;
       cursor: pointer;
     }
-
-    &:disabled {
-      background-color: #090f22;
-      cursor: default;
-    }
   }
+
+  &_setting {
+    border-radius: 5px;
+    border: none;
+    font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      'Open Sans', 'Helvetica Neue', sans-serif;
+    cursor: pointer;
+
+    @include lg.linearGradient(bottom, #146186 #01375a);
+  }
+}
+
+.panelBtns {
+  display: flex;
+  justify-content: right;
+  gap: 0.6rem;
 }

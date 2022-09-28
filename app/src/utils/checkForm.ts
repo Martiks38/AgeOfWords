@@ -1,13 +1,14 @@
+import { FocusEvent } from 'react'
+
 import { regex } from '../const/regex'
 
-import { Dispatch, FocusEvent, SetStateAction } from 'react'
 import { StateForm } from '../interfaces'
-import { ErrorField } from '../types'
+import { ErrorField, SetState } from '../types'
 
 const checkField = (
   event: FocusEvent<HTMLInputElement>,
   errorField: ErrorField,
-  setForm: Dispatch<SetStateAction<StateForm>>
+  setForm: SetState<StateForm>
 ) => {
   const { id, value } = event.currentTarget
   let errorObj: ErrorField = {}

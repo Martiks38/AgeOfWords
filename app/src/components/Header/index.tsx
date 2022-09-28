@@ -1,5 +1,6 @@
 import { Link } from 'wouter'
 import IconUser from '../IconUser'
+
 import { useUserConnected } from '../../hooks/useUserConnected'
 
 function Header() {
@@ -10,7 +11,7 @@ function Header() {
       <figure className="logo">
         <Link href="/">
           <a className="logo__link">
-            <img src="logo.png" alt="Age of Words" className="logo__img" />
+            <img src="/logo.png" alt="Age of Words" className="logo__img" />
           </a>
         </Link>
       </figure>
