@@ -7,27 +7,16 @@ export const verifyToken = async (req, res, next) => {
   try {
     const token = req.headers['x-access-token']
 
-    if (!token) return next()
-
-    const { password } = req.body
+    if (!token) return res.status(403).json({ message: 'No token provided' })
 
     const decoded = jwt.verify(token, SECRET)
     req.userId = decoded.id
 
-    const user = await userModel.findById(req.userId)
+    const user = await userModel.findById(req.userId, { password: 0 })
 
-    const matchPassword = await userModel.comparePassword(
-      password,
-      user.password
-    )
-    if (!matchPassword)
-      return res.status(401).json({ token: null, message: 'Invalid password' })
+    if (!user) return res.status(404).json({ message: 'No user found' })
 
-    const newToken = jwt.sign({ id: user._id }, SECRET, {
-      expiresIn: 86400 * 7, // one week
-    })
-
-    return res.status(200).json({ newToken })
+    next()
   } catch (error) {
     return res.status(401).json({ message: 'Unauthorozed' })
   }
