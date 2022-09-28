@@ -1,11 +1,13 @@
-import { Dispatch, FormEvent, SetStateAction } from 'react'
+import { FormEvent } from 'react'
+
 import { regex } from '../const/regex'
+
 import { StateForm } from '../interfaces'
-import { ErrorField } from '../types'
+import { ErrorField, SetState } from '../types'
 
 export const createUser = async (
   event: FormEvent<HTMLFormElement>,
-  setForm: Dispatch<SetStateAction<StateForm>>,
+  setForm: SetState<StateForm>,
   toggleConnected: (connected: boolean, username?: string) => void
 ) => {
   const { username, email, password } = event.currentTarget
@@ -32,6 +34,8 @@ export const createUser = async (
 
       let res = await fetch('http://localhost:3030/api/v1/signup', options)
       let data: any = await res.json()
+
+      if (res.status < 200 || res.status > 299) throw data
 
       let dateOfExpiry = Date.now() + 86400 * 7
 
