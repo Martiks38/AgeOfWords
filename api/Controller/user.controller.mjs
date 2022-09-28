@@ -59,7 +59,6 @@ const modifyUser = async (req, res) => {
       .status(200)
       .json({ message: `The ${field} has been changed successfully` })
   } catch (error) {
-    console.log(error)
     res.status(500).json(serverError)
   }
 }
