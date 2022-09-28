@@ -30,7 +30,11 @@ function SignUp() {
     <main className="g-center">
       <section>
         <figure className="container__logo">
-          <img className="signUP__logo" src="logo.png" alt="Age of Words" />
+          <Link href="/">
+            <a>
+              <img className="signUP__logo" src="logo.png" alt="Age of Words" />
+            </a>
+          </Link>
         </figure>
         <article className="container__form">
           <h1 className="signUp__title">Sign up to Age of Words</h1>

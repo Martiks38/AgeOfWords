@@ -1,4 +1,5 @@
 import { Link } from 'wouter'
+
 import Header from '../../components/Header'
 
 function Home() {

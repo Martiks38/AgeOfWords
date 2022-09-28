@@ -1,9 +1,11 @@
 import { useEffect, useLayoutEffect, useState } from 'react'
 import { Link, useLocation } from 'wouter'
+
 import { useUserConnected } from '../../hooks/useUserConnected'
-import { StateForm } from '../../interfaces'
 import { loginUser } from '../../services/signIn'
 import { checkField } from '../../utils/checkForm'
+
+import { StateForm } from '../../interfaces'
 
 function SignIn() {
   const { toggleConnected } = useUserConnected()
@@ -29,7 +31,11 @@ function SignIn() {
     <main className="g-center">
       <section>
         <figure className="container__logo">
-          <img className="signUP__logo" src="logo.png" alt="Age of Words" />
+          <Link href="/">
+            <a>
+              <img className="signUP__logo" src="logo.png" alt="Age of Words" />
+            </a>
+          </Link>
         </figure>
         <article className="container__form">
           <h1 className="signUp__title">Sign in to Age of Words</h1>
@@ -51,9 +57,12 @@ function SignIn() {
               required
               onBlur={(e) => checkField(e, form.errorField, setForm)}
             />
-            <label className="form__label" htmlFor="password">
-              Password
-            </label>
+            <span className="form__label form__label_forgotPassword">
+              <label htmlFor="password">Password</label>
+              <Link href="">
+                <a>Forgot password?</a>
+              </Link>
+            </span>
             <input
               className="form__input"
               type="password"
