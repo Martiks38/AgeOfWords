@@ -1,0 +1,12 @@
+.play-game__content {
+  text-align: center;
+}
+
+.play-game__link {
+  color: #b9872e;
+  font-size: 4.5rem;
+  font-size: clamp(4.5rem, 4.384615384615385rem + 0.5128205128205128vw, 5rem);
+  font-family: 'Roboto Slab', system-ui, -apple-system, 'Segoe UI', Ubuntu,
+    'Open Sans', 'Helvetica Neue', sans-serif;
+  letter-spacing: 6px;
+}

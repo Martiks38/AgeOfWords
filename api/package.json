@@ -4,19 +4,22 @@
   "description": "Contiene un listado de palabras de Age of Empires",
   "main": "server.js",
   "scripts": {
+    "dev": "NODE_ENV=development nodemon ./server.mjs",
+    "dev-win": "SET NODE_ENV=development & nodemon ./server.mjs",
     "start": "node server.js"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
-    "promise-mysql": "^5.2.0"
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.6.1"
   },
-  "devDependencies": {},
   "type": "module",
   "keywords": [
     "Express",
-    "MySQL",
+    "MongoDB",
     "Age-of-Empires"
   ],
   "author": "Martiks <giu132@hotmail.com>",
