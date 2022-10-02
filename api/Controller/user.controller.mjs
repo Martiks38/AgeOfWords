@@ -1,6 +1,8 @@
 import userModel from '../Model/user.model.mjs'
+import jwt from 'jsonwebtoken'
 
 import { initialResults, serverError } from '../const.mjs'
+import { SECRET } from '../env.mjs'
 
 const getUser = async (req, res) => {
   try {
