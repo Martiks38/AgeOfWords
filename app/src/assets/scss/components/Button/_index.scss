@@ -39,6 +39,18 @@
     }
   }
 
+  &_error404 {
+    margin-bottom: 1.5rem;
+    background-color: rgb(10, 20, 125);
+    border-radius: 8px;
+    font-family: Roboto;
+    font-weight: 700;
+    color: #fff;
+    &:hover {
+      background-color: rgb(19, 36, 230);
+    }
+  }
+
   &_form {
     margin: 0 auto;
     background-color: #090f22;
