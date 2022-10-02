@@ -1,0 +1,41 @@
+.resultBar {
+  display: flex;
+  margin-bottom: 0.8rem;
+  width: 100%;
+  font-family: Roboto;
+  gap: 0.2rem;
+
+  &__try {
+    padding: 0.2rem 0.6rem;
+  }
+
+  &__bar {
+    padding: 0.2rem 0.6rem;
+    background-color: brown;
+    min-width: -webkit-min-content;
+    min-width: -moz-min-content;
+    min-width: min-content;
+    text-align: center;
+
+    &_turn {
+      background-color: #b9872e;
+    }
+  }
+}
+
+.gameInformation {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  grid-template-rows: 1;
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  &__blockNumber {
+    font-size: 1.75rem;
+  }
+}
