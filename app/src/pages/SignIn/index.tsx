@@ -57,12 +57,9 @@ function SignIn() {
               required
               onBlur={(e) => checkField(e, form.errorField, setForm)}
             />
-            <span className="form__label form__label_forgotPassword">
-              <label htmlFor="password">Password</label>
-              <Link href="">
-                <a>Forgot password?</a>
-              </Link>
-            </span>
+            <label className="form__label" htmlFor="password">
+              Password
+            </label>
             <input
               className="form__input"
               type="password"
