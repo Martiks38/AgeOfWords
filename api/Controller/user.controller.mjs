@@ -92,6 +92,25 @@ const deleteUser = async (req, res) => {
   }
 }
 
+const newToken = async (req, res) => {
+  try {
+    const id = req.userId
+
+    const user = await userModel.findOne({ _id: id })
+
+    if (!user)
+      return res.status(404).json({ message: 'The account does not exist' })
+
+    const token = jwt.sign({ id: user._id }, SECRET, {
+      expiresIn: 86400 * 7, // one week
+    })
+
+    res.status(200).json({ token })
+  } catch (error) {
+    res.status(500).json(serverError)
+  }
+}
+
 export default {
   createUser,
   deleteUser,
@@ -99,4 +118,5 @@ export default {
   getUser,
   getUsers,
   modifyUser,
+  newToken,
 }

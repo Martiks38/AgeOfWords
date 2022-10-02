@@ -19,6 +19,7 @@ router
     userController.createUser
   )
   .post('/oneData', verifyToken, userController.getOneDataUser)
+  .post('/renewSession', verifyToken, userController.newToken)
 
 router.patch(
   '/modify',
