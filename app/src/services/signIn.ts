@@ -6,7 +6,7 @@ import { SetState } from '../types'
 export const loginUser = async (
   event: FormEvent<HTMLFormElement>,
   setForm: SetState<StateForm>,
-  toggleConnected: (connected: boolean, username?: string) => void
+  toggleConnected: (connected: boolean, username: string) => void
 ) => {
   const { username, password } = event.currentTarget
 

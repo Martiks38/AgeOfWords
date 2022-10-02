@@ -7,7 +7,7 @@ async function getWords(req, res) {
     let results = await wordsModel.find()
     let words = results[0]
 
-    res.status(200).json({ status: 200, words })
+    res.status(200).json({ words })
   } catch (error) {
     res.status(500).json(serverError)
   }
@@ -21,7 +21,7 @@ async function getRandomWord(req, res) {
     let random = Math.floor(Math.random() * 61)
     let word = words[random]
 
-    res.status(200).json({ status: 200, word })
+    res.status(200).json({ word })
   } catch (error) {
     res.status(500).json(serverError)
   }
@@ -70,9 +70,7 @@ async function createWord(req, res) {
 
     await wordsModel.updateOne({ _id: id }, { $set: { words: newWords } })
 
-    res
-      .status(201)
-      .json({ status: 201, message: `Added the word ${word} to the list` })
+    res.status(201).json({ message: `Added the word ${word} to the list` })
   } catch (error) {
     if (error?.status) res.status(error.status).json({ message: error.message })
 
@@ -92,9 +90,7 @@ async function deleteWord(req, res) {
 
     await wordsModel.updateOne({ _id: id }, { $set: { words: newWords } })
 
-    res
-      .status(200)
-      .json({ status: 200, message: `The word was successfully removed` })
+    res.status(200).json({ message: `The word was successfully removed` })
   } catch (error) {
     if (error?.status) res.status(error.status).json(error)
     res.status(500).json(serverError)

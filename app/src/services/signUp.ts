@@ -8,7 +8,7 @@ import { ErrorField, SetState } from '../types'
 export const createUser = async (
   event: FormEvent<HTMLFormElement>,
   setForm: SetState<StateForm>,
-  toggleConnected: (connected: boolean, username?: string) => void
+  toggleConnected: (connected: boolean, username: string) => void
 ) => {
   const { username, email, password } = event.currentTarget
 
@@ -37,7 +37,7 @@ export const createUser = async (
 
       if (res.status < 200 || res.status > 299) throw data
 
-      let dateOfExpiry = Date.now() + 86400 * 7
+      let dateOfExpiry = Date.now() + 86400 * 7 * 1000
 
       window.localStorage.setItem(
         'AWSession',

@@ -5,7 +5,7 @@ import { accountUpdate } from '../../services/updateUser'
 import { useUserConnected } from '../../hooks/useUserConnected'
 import { regex } from '../../const/regex'
 
-import { SetState } from '../../types'
+import { Results, SetState } from '../../types'
 
 function UpdateUserBlock({ updateData }: { updateData: string }) {
   const [prompt, setPrompt] = useState(false)
@@ -51,6 +51,7 @@ function UpdateUserBlock({ updateData }: { updateData: string }) {
     setIsConnected: SetState<{
       username: string
       connected: boolean
+      results: Results
     }>
   ) => {
     setPrompt((prevValue) => !prevValue)

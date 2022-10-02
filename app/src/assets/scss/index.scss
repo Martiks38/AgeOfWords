@@ -53,7 +53,7 @@ figure {
   display: grid;
   height: 100vh;
 
-  & > * {
+  & > .container__sing {
     place-self: center;
     width: 100vw;
   }

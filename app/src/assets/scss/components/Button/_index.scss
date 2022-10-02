@@ -14,7 +14,6 @@
 
     &__letter {
       font-family: 'Roboto Slab';
-
       @include bgText.backgroundText('top', 1.4rem, (#df950b 25%) #fff);
     }
   }
@@ -37,6 +36,18 @@
       background-color: #a81f1b;
       border-color: #f85149;
       color: #fff;
+    }
+  }
+
+  &_error404 {
+    margin-bottom: 1.5rem;
+    background-color: rgb(10, 20, 125);
+    border-radius: 8px;
+    font-family: Roboto;
+    font-weight: 700;
+    color: #fff;
+    &:hover {
+      background-color: rgb(19, 36, 230);
     }
   }
 
@@ -63,6 +74,42 @@
     cursor: pointer;
 
     @include lg.linearGradient(bottom, #146186 #01375a);
+  }
+
+  &_stadistics {
+    width: 48px;
+    height: 48px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  &_playAgain {
+    margin: 2rem auto 0;
+    padding: 0.4rem 1rem;
+    background-color: #820910;
+    box-shadow: inset 0 0 8px 3px #000;
+    border: solid 3px #ec9c02;
+    border-bottom-style: ridge;
+    border-right-style: ridge;
+    border-radius: 6px;
+
+    &_letter {
+      font-family: 'Roboto Slab';
+      color: #df950b;
+    }
+
+    &_blue {
+      background-color: #0b3254;
+
+      &:hover {
+        background-color: #3390e1;
+      }
+
+      &:hover span {
+        color: #663900;
+      }
+    }
   }
 }
 

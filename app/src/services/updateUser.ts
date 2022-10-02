@@ -1,6 +1,6 @@
 import { FormEvent } from 'react'
 
-import { SetState } from '../types'
+import { Results, SetState } from '../types'
 
 export const accountUpdate = async (
   event: FormEvent<HTMLFormElement>,
@@ -11,6 +11,7 @@ export const accountUpdate = async (
   setIsConnected: SetState<{
     username: string
     connected: boolean
+    results: Results
   }>
 ) => {
   try {
@@ -24,7 +25,7 @@ export const accountUpdate = async (
 
     const { id, value } = event.currentTarget.newData
 
-    const body = { fiel: id, newValue: value }
+    const body = { field: id, newValue: value }
 
     let options = {
       headers: {

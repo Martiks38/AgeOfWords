@@ -1,0 +1,20 @@
+.error404 {
+  height: 300px;
+
+  & > * {
+    z-index: 4;
+  }
+
+  & h1 {
+    margin-bottom: 0;
+    font-size: 3rem;
+    font-family: 'Roboto Slab';
+    color: #000;
+  }
+
+  & h2 {
+    font-size: 2rem;
+    font-family: 'Roboto Slab';
+    color: #000;
+  }
+}

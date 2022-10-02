@@ -30,7 +30,7 @@ function ModalDelete({
     if (error.isThere) {
       delayCloseModal = setTimeout(() => {
         setError({ message: '', isThere: false })
-      }, 300000)
+      }, 3000)
     }
 
     return () => {

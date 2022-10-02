@@ -14,7 +14,7 @@ function Home() {
           </figcaption>
         </figure>
         <div className="play-game__content">
-          <Link href="/">
+          <Link href="/game">
             <a className="play-game__link">Play</a>
           </Link>
         </div>
