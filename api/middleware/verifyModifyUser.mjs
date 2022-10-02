@@ -5,17 +5,17 @@ import { regex, serverError } from '../const.mjs'
 export const verifyModifyUser = async (req, res, next) => {
   try {
     const { field, newValue } = req.body
-
     if (field === 'results') {
       const keys = Object.keys(newValue)
 
       for (let key of keys) {
-        if (!regex.test(key))
+        if (!regex.results.test(key))
           return res.status(400).json({ message: 'Invalid format' })
       }
 
       const values = Object.values(newValue)
-      const user = await userModel.findOne({ _id: req.userID })
+
+      const user = await userModel.findOne({ _id: req.userId })
       const userValues = Object.values(user.results)
 
       if (values.at(-1) - userValues.at(-1) !== 1) {
@@ -31,6 +31,8 @@ export const verifyModifyUser = async (req, res, next) => {
             .json({ message: 'Inconsistency in the result' })
         }
       }
+
+      return next()
     }
 
     let regexFound = regex[field] ? true : false

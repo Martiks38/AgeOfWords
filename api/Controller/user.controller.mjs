@@ -16,6 +16,23 @@ const getUser = async (req, res) => {
   }
 }
 
+const getOneDataUser = async (req, res) => {
+  try {
+    const id = req.userId
+    const { field } = req.body
+
+    const result = await userModel.find({ _id: id })
+
+    let user = result.at(0)
+
+    if (!user[field]) return res.statuse(400).json({ message: 'Bad Request' })
+
+    res.status(200).json(user[field])
+  } catch (error) {
+    res.status(500).json(serverError)
+  }
+}
+
 const getUsers = async (req, res) => {
   try {
     const results = await userModel.find()
@@ -75,4 +92,11 @@ const deleteUser = async (req, res) => {
   }
 }
 
-export default { createUser, deleteUser, getUser, getUsers, modifyUser }
+export default {
+  createUser,
+  deleteUser,
+  getOneDataUser,
+  getUser,
+  getUsers,
+  modifyUser,
+}

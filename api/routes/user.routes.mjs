@@ -12,11 +12,13 @@ router
   .get('/users', userController.getUsers)
   .get('/:id', userController.getUser)
 
-router.post(
-  '/create',
-  [checkCreationFields, accountExist],
-  userController.createUser
-)
+router
+  .post(
+    '/create',
+    [checkCreationFields, accountExist],
+    userController.createUser
+  )
+  .post('/oneData', verifyToken, userController.getOneDataUser)
 
 router.patch(
   '/modify',
