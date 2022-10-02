@@ -1,0 +1,56 @@
+.accountSetting__container {
+  margin-bottom: 2rem;
+}
+
+.accountSetting__page {
+  margin: 2rem;
+  font-family: Roboto;
+
+  @media screen and (max-width: 31.25rem) {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+
+.accountSetting__title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
+  font-family: Prompt;
+  gap: 1rem;
+}
+
+.accountSetting__section {
+  padding-bottom: 0.6rem;
+  border-bottom: solid thin rgba(255, 255, 255, 0.25);
+}
+
+.accountSetting__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  background-color: #000;
+  border: solid 2px #b9872e;
+  border-radius: 50%;
+  font-family: 'Roboto Slab';
+  font-size: 2.26rem;
+}
+
+.accountSetting__username {
+  font-size: 2rem;
+  line-height: 1.2;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.accountSetting__msg {
+  font-size: 1.2rem;
+}
+
+.accountSetting__warning {
+  display: inline-block;
+  margin-bottom: 1rem;
+}

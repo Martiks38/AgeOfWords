@@ -1,6 +1,8 @@
 import userModel from '../Model/user.model.mjs'
+import jwt from 'jsonwebtoken'
 
 import { initialResults, serverError } from '../const.mjs'
+import { SECRET } from '../env.mjs'
 
 const getUser = async (req, res) => {
   try {
@@ -11,6 +13,23 @@ const getUser = async (req, res) => {
     let user = result.at(0)
 
     res.status(200).json(user)
+  } catch (error) {
+    res.status(500).json(serverError)
+  }
+}
+
+const getOneDataUser = async (req, res) => {
+  try {
+    const id = req.userId
+    const { field } = req.body
+
+    const result = await userModel.find({ _id: id })
+
+    let user = result.at(0)
+
+    if (!user[field]) return res.statuse(400).json({ message: 'Bad Request' })
+
+    res.status(200).json(user[field])
   } catch (error) {
     res.status(500).json(serverError)
   }
@@ -59,7 +78,6 @@ const modifyUser = async (req, res) => {
       .status(200)
       .json({ message: `The ${field} has been changed successfully` })
   } catch (error) {
-    console.log(error)
     res.status(500).json(serverError)
   }
 }
@@ -76,4 +94,31 @@ const deleteUser = async (req, res) => {
   }
 }
 
-export default { createUser, deleteUser, getUser, getUsers, modifyUser }
+const newToken = async (req, res) => {
+  try {
+    const id = req.userId
+
+    const user = await userModel.findOne({ _id: id })
+
+    if (!user)
+      return res.status(404).json({ message: 'The account does not exist' })
+
+    const token = jwt.sign({ id: user._id }, SECRET, {
+      expiresIn: 86400 * 7, // one week
+    })
+
+    res.status(200).json({ token })
+  } catch (error) {
+    res.status(500).json(serverError)
+  }
+}
+
+export default {
+  createUser,
+  deleteUser,
+  getOneDataUser,
+  getUser,
+  getUsers,
+  modifyUser,
+  newToken,
+}

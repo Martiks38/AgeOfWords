@@ -21,7 +21,7 @@ const signUp = async (req, res) => {
       expiresIn: 86400 * 7, // one week
     })
 
-    res.status(201).json({ token, user })
+    res.status(201).json({ token })
   } catch (error) {
     res.status(500).json(serverError)
   }
@@ -29,9 +29,12 @@ const signUp = async (req, res) => {
 
 const signIn = async (req, res) => {
   try {
-    const { email, password, username } = req.body
+    const { password, username } = req.body
 
-    const user = await userModel.findOne({ email, username })
+    const user = await userModel.findOne({ username })
+
+    if (!user)
+      return res.status(404).json({ message: 'The account does not exist' })
 
     const matchPassword = await userModel.comparePassword(
       password,
@@ -45,7 +48,7 @@ const signIn = async (req, res) => {
       expiresIn: 86400 * 7, // one week
     })
 
-    res.status(200).json({ token, user })
+    res.status(200).json({ token })
   } catch (error) {
     res.status(500).json(serverError)
   }

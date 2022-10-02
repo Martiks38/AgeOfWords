@@ -1,9 +1,11 @@
+@use '../../mixins/backgroundText' as bgText;
+
 .headerPage {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0.6rem 1.8rem;
-  background-color: #492b20;
+  background-color: #030303;
 }
 
 .logo {
@@ -35,18 +37,32 @@
   width: -moz-min-content;
   width: min-content;
   height: auto;
-  margin: 2rem auto 3rem;
-  background-color: #262620;
-  border-radius: 25px / 40px;
+
+  &_home {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem auto 5rem;
+    padding: 2rem 2rem 3rem;
+    background-color: #262620;
+    border-radius: 25px / 40px;
+    gap: 1rem;
+  }
 
   &__img {
-    width: clamp(320px, 300px + 3.5vw, 360px);
-    padding: 1rem 1rem 4.5rem;
+    max-width: 10rem;
+    width: 70vw;
+
+    @media screen and (max-width: 25rem) {
+      max-width: 15rem;
+    }
   }
 
   &__title {
     position: absolute;
-    bottom: 0.7rem;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
     width: 100%;
     padding: 1rem;
     margin: 0;
@@ -54,10 +70,12 @@
     height: -moz-min-content;
     height: min-content;
     text-align: center;
-    font-size: 3.1rem;
-    background-image: linear-gradient(to bottom, #caa166 50%, #f3f3f3);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    font-family: Prompt;
+
+    @include bgText.backgroundText(bottom, 1.6rem, (#caa166 50%) #f3f3f3);
+
+    @media screen and (max-width: 25rem) {
+      font-size: 1.8rem;
+    }
   }
 }
