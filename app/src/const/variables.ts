@@ -11,4 +11,18 @@ const initialDataGame: DataGame = {
   words: wordsMatrix,
 }
 
-export { initialDataGame }
+const initialConnection = {
+  username: '',
+  connected: false,
+  results: {
+    try_1: 0,
+    try_2: 0,
+    try_3: 0,
+    try_4: 0,
+    try_5: 0,
+    try_6: 0,
+    total: 0,
+  },
+}
+
+export { initialConnection, initialDataGame }

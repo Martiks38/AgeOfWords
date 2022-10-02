@@ -37,7 +37,7 @@ export const createUser = async (
 
       if (res.status < 200 || res.status > 299) throw data
 
-      let dateOfExpiry = Date.now() + 86400 * 7
+      let dateOfExpiry = Date.now() + 86400 * 7 * 1000
 
       window.localStorage.setItem(
         'AWSession',
