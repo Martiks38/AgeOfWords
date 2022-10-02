@@ -1,5 +1,5 @@
 import { FormEvent } from 'react'
-import { SetState } from '../types'
+import { Results, SetState } from '../types'
 
 export const accountDelete = async (
   event: FormEvent<HTMLFormElement>,
@@ -7,6 +7,7 @@ export const accountDelete = async (
   setIsConnected: SetState<{
     username: string
     connected: boolean
+    results: Results
   }>,
   setLocation: (
     to: string,
@@ -41,7 +42,9 @@ export const accountDelete = async (
 
     window.localStorage.removeItem('AWSession')
 
-    setIsConnected({ username: '', connected: false })
+    setIsConnected((prevValues) => {
+      return { ...prevValues, username: '', connected: false }
+    })
 
     setLocation('/')
   } catch (error: any) {

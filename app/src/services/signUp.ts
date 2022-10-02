@@ -8,7 +8,7 @@ import { ErrorField, SetState } from '../types'
 export const createUser = async (
   event: FormEvent<HTMLFormElement>,
   setForm: SetState<StateForm>,
-  toggleConnected: (connected: boolean, username?: string) => void
+  toggleConnected: (connected: boolean, username: string) => void
 ) => {
   const { username, email, password } = event.currentTarget
 

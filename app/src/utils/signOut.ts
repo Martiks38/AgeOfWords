@@ -1,7 +1,7 @@
 export const signOut = (
-  toggleConnected: (connected: boolean, username?: string) => void
+  toggleConnected: (connected: boolean, username: string) => void
 ) => {
   window.localStorage.removeItem('AWSession')
 
-  toggleConnected(false)
+  toggleConnected(false, '')
 }

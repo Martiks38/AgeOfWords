@@ -28,7 +28,7 @@ function SignUp() {
 
   return (
     <main className="g-center">
-      <section>
+      <section className="container__sing">
         <figure className="container__logo">
           <Link href="/">
             <a>
