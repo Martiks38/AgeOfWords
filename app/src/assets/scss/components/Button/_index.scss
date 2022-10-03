@@ -6,62 +6,66 @@
   padding: 0.4rem 1rem;
 
   &_home {
-    background-color: #820910;
-    box-shadow: inset 0 0 8px 3px #000;
-    border: solid 3px #ec9c02;
+    background-color: var(--background-color-red);
+    box-shadow: inset 0 0 8px 3px var(--black-color);
+    border: solid 3px var(--yellow-border-color);
     border-bottom-style: ridge;
     border-right-style: ridge;
 
     &__letter {
       font-family: 'Roboto Slab';
-      @include bgText.backgroundText('top', 1.4rem, (#df950b 25%) #fff);
+      @include bgText.backgroundText(
+        'top',
+        1.4rem,
+        (var(--background-letter-orange-color) 25%) var(--white-color)
+      );
     }
   }
 
   &_accountDelete {
-    background-color: #171b27;
-    border: solid thin #fff;
+    background-color: var(--background-dark-blue-color);
+    border: solid thin var(--white-color);
     border-radius: 6px;
     color: #ff817b;
     font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
 
     &:disabled {
-      background-color: #0d0e13;
-      border: solid thin rgb(100, 100, 100);
+      background-color: var(--background-dark-color);
+      border: solid thin var(--gray-border-color);
       border-radius: 6px;
-      color: #ff6f68;
+      color: var(--light-red-color);
     }
 
     &:not(:disabled):hover {
-      background-color: #a81f1b;
-      border-color: #f85149;
-      color: #fff;
+      background-color: var(--background-color-red2);
+      border-color: var(--light-red-color2);
+      color: var(--white-color);
     }
   }
 
   &_error404 {
     margin-bottom: 1.5rem;
-    background-color: rgb(10, 20, 125);
+    background-color: var(--background-dark-blue-color2);
     border-radius: 8px;
     font-family: Roboto;
     font-weight: 700;
-    color: #fff;
+    color: var(--white-color);
     &:hover {
-      background-color: rgb(19, 36, 230);
+      background-color: var(--background-color-blue);
     }
   }
 
   &_form {
     margin: 0 auto;
-    background-color: #090f22;
-    color: #fff;
+    background-color: var(--background-dark-blue-color3);
+    color: var(--white-color);
     font-family: Prompt, Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI',
       'Open Sans', 'Helvetica Neue', sans-serif;
     border-radius: 6px;
     border: none;
 
     &:hover {
-      background-color: #12255d;
+      background-color: var(--background-color-blue2);
       cursor: pointer;
     }
   }
@@ -73,7 +77,10 @@
       'Open Sans', 'Helvetica Neue', sans-serif;
     cursor: pointer;
 
-    @include lg.linearGradient(bottom, #146186 #01375a);
+    @include lg.linearGradient(
+      bottom,
+      var(--background-gradient-color1) var(--background-gradient-color2)
+    );
   }
 
   &_stadistics {
@@ -87,27 +94,27 @@
   &_playAgain {
     margin: 2rem auto 0;
     padding: 0.4rem 1rem;
-    background-color: #820910;
-    box-shadow: inset 0 0 8px 3px #000;
-    border: solid 3px #ec9c02;
+    background-color: var(--background-color-red);
+    box-shadow: inset 0 0 8px 3px var(--black-color);
+    border: solid 3px var(--yellow-border-color);
     border-bottom-style: ridge;
     border-right-style: ridge;
     border-radius: 6px;
 
     &_letter {
       font-family: 'Roboto Slab';
-      color: #df950b;
+      color: var(--background-letter-orange-color);
     }
 
     &_blue {
-      background-color: #0b3254;
+      background-color: var(--background-dark-blue-color4);
 
       &:hover {
-        background-color: #3390e1;
+        background-color: var(--background-light-blue-color);
       }
 
       &:hover span {
-        color: #663900;
+        color: var(--brown-color);
       }
     }
   }

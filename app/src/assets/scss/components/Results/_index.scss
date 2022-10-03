@@ -11,14 +11,14 @@
 
   &__bar {
     padding: 0.2rem 0.6rem;
-    background-color: brown;
+    background-color: var(--brown-color2);
     min-width: -webkit-min-content;
     min-width: -moz-min-content;
     min-width: min-content;
     text-align: center;
 
     &_turn {
-      background-color: #b9872e;
+      background-color: var(--background-dark-orange-color);
     }
   }
 }

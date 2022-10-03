@@ -7,7 +7,7 @@
   display: block;
   height: auto;
   width: 3rem;
-  background-color: #000;
+  background-color: var(--black-color);
   border-radius: 50%;
   -o-object-fit: cover;
   object-fit: cover;
@@ -27,9 +27,9 @@
   width: inherit;
   margin: 1rem auto 0;
   padding: 1rem;
-  background-color: #161925;
+  background-color: var(--background-dark-blue-color);
   justify-content: space-between;
   font-family: Prompt;
-  border: solid thin #fff;
+  border: solid thin var(--white-color);
   border-radius: 8px;
 }

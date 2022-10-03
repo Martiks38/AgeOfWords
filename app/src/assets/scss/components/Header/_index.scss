@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.6rem 1.8rem;
-  background-color: #030303;
+  background-color: var(--background-dark-color);
 }
 
 .logo {
@@ -43,7 +43,7 @@
     flex-direction: column;
     margin: 2rem auto 5rem;
     padding: 2rem 2rem 3rem;
-    background-color: #262620;
+    background-color: var(--background-dark-yellow-color);
     border-radius: 25px / 40px;
     gap: 1rem;
   }
@@ -72,7 +72,11 @@
     text-align: center;
     font-family: Prompt;
 
-    @include bgText.backgroundText(bottom, 1.6rem, (#caa166 50%) #f3f3f3);
+    @include bgText.backgroundText(
+      bottom,
+      1.6rem,
+      (var(--background-light-orange-color2) 50%) var(--white-color)
+    );
 
     @media screen and (max-width: 25rem) {
       font-size: 1.8rem;
