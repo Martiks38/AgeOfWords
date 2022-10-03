@@ -1,6 +1,8 @@
 import { FormEvent } from 'react'
 
-import { Results, SetState } from '../types'
+import { getDataUser } from '../utils/getDataUser'
+
+import { DataUser, Results, SetState } from '../types'
 
 export const accountUpdate = async (
   event: FormEvent<HTMLFormElement>,
@@ -14,14 +16,12 @@ export const accountUpdate = async (
     results: Results
   }>
 ) => {
+  event.preventDefault()
+
   try {
-    const data = window.localStorage.getItem('AWSession')
+    const dataUser: DataUser = getDataUser()
 
-    event.preventDefault()
-
-    if (!data) return
-
-    const dataUser = JSON.parse(data)
+    if (!dataUser) return
 
     const { id, value } = event.currentTarget.newData
 
@@ -50,6 +50,8 @@ export const accountUpdate = async (
       return { ...prevValue, username: value }
     })
   } catch (error: any) {
+    // Saves the response message from the server
+    // Indicates that there is an error
     setError({ message: error.message, isThere: true })
   }
 }

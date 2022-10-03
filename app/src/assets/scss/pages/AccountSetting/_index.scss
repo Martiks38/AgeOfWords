@@ -22,7 +22,7 @@
 
 .accountSetting__section {
   padding-bottom: 0.6rem;
-  border-bottom: solid thin rgba(255, 255, 255, 0.25);
+  border-bottom: solid thin var(--white-color-t25);
 }
 
 .accountSetting__icon {
@@ -31,8 +31,8 @@
   justify-content: center;
   width: 3.5rem;
   height: 3.5rem;
-  background-color: #000;
-  border: solid 2px #b9872e;
+  background-color: var(--black-color);
+  border: solid 2px var(--background-dark-orange-color);
   border-radius: 50%;
   font-family: 'Roboto Slab';
   font-size: 2.26rem;

@@ -3,6 +3,7 @@ import Modal from '../Modal'
 
 import { accountUpdate } from '../../services/updateUser'
 import { useUserConnected } from '../../hooks/useUserConnected'
+
 import { regex } from '../../const/regex'
 
 import { Results, SetState } from '../../types'
@@ -21,6 +22,7 @@ function UpdateUserBlock({ updateData }: { updateData: string }) {
   useEffect(() => {
     let delayCloseModal: number
 
+    // The modal will display on the screen that there is an error for 3s
     if (error.isThere) {
       delayCloseModal = setTimeout(() => {
         setError({ message: '', isThere: false })

@@ -3,7 +3,8 @@ import { createContext, useLayoutEffect, useRef, useState } from 'react'
 import { getDataUser } from '../utils/getDataUser'
 import { initialConnection } from '../const/variables'
 
-import { UserConnectedContextState } from '../types'
+import { DataUser, UserConnectedContextState } from '../types'
+
 type props = { children: JSX.Element | JSX.Element[] }
 
 export const UserCtx = createContext<UserConnectedContextState>(
@@ -21,11 +22,12 @@ function UserProvider({ children }: props) {
 
     const initUser = async () => {
       try {
-        let data: { token: string; username: string; expires: string } =
-          getDataUser()
+        let data: DataUser = getDataUser()
 
+        // Check if there is no open session or that it has not expired
         if (!data || Date.parse(data.expires) <= Date.now()) return
 
+        // If there is less than a day left before the session expires upon login, then it extends the session connection for another week.
         if (Date.parse(data.expires) - Date.now() < 86400 * 1000) {
           try {
             let optionsRenewSession = {
