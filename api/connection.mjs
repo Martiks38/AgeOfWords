@@ -1,8 +1,8 @@
 import mongoose from 'mongoose'
 
-import { URLMONGO } from './env.mjs'
+import { CONNECTION } from './env.mjs'
 
 mongoose
-  .connect(URLMONGO)
+  .connect(CONNECTION)
   .then((db) => console.log('Db is connected'))
   .catch((error) => console.log(error))

@@ -2,6 +2,6 @@ import { config } from 'dotenv'
 
 config()
 
-const { PORT, SECRET, URLMONGO } = process.env
+const { PORT, SECRET, CONNECTION } = process.env
 
-export { PORT, SECRET, URLMONGO }
+export { PORT, SECRET, CONNECTION }

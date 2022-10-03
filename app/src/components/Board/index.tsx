@@ -85,14 +85,14 @@ function GameBoard() {
         }
 
         default: {
-          // Compruebo si es una letra
+          // Check if it is a letter
           if (!/^[a-z]$/i.test(key)) return
 
           const firstEmptyIndex = words[turn].findIndex(
             (letter) => letter === ''
           )
 
-          // Compruebo si hay espacios vacíos aún
+          // Check if there are any empty spaces yet
           if (firstEmptyIndex === -1) return
 
           const cpyWords = words.slice()

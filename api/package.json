@@ -1,5 +1,5 @@
 {
-  "name": "api_age_word",
+  "name": "api_age_of_words",
   "version": "0.0.1",
   "description": "Contiene un listado de palabras de Age of Empires",
   "main": "server.js",
