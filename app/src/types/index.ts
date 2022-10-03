@@ -29,4 +29,22 @@ type UserConnectedContextState = {
   toggleConnected: (connected: boolean, username: string) => void
 }
 
-export type { ErrorField, Results, SetState, UserConnectedContextState }
+type SetLocation = (
+  to: string,
+  options?:
+    | {
+        replace?: boolean | undefined
+      }
+    | undefined
+) => void
+
+type DataUser = { token: string; username: string; expires: string }
+
+export type {
+  DataUser,
+  ErrorField,
+  Results,
+  SetLocation,
+  SetState,
+  UserConnectedContextState,
+}

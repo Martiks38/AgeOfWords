@@ -27,6 +27,7 @@ function ModalDelete({
   useEffect(() => {
     let delayCloseModal: number
 
+    // The modal will display on the screen that there is an error for 3s
     if (error.isThere) {
       delayCloseModal = setTimeout(() => {
         setError({ message: '', isThere: false })
@@ -39,8 +40,11 @@ function ModalDelete({
   }, [error.isThere])
 
   useEffect(() => {
-    const checkCloseClick = (e: MouseEvent) => {
+    const checkCloseClick = (e: MouseEvent | KeyboardEvent) => {
       const { target } = e
+
+      if ((e as KeyboardEvent)?.key === 'Escape')
+        return closeModal(setCheckFormDelete)
 
       if (
         (!(target as HTMLElement).closest('.modal') &&
@@ -51,10 +55,15 @@ function ModalDelete({
       }
     }
 
-    if (checkFormDelete.view)
+    if (checkFormDelete.view) {
       document.addEventListener('click', checkCloseClick)
+      document.addEventListener('keydown', checkCloseClick)
+    }
 
-    return () => document.removeEventListener('click', checkCloseClick)
+    return () => {
+      document.removeEventListener('click', checkCloseClick)
+      document.removeEventListener('keydown', checkCloseClick)
+    }
   }, [checkFormDelete.view, closeModal])
 
   const checkDelete = (event: FormEvent<HTMLInputElement>) => {

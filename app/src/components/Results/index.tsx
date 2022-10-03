@@ -3,11 +3,12 @@ import Modal from '../Modal'
 
 import { getDataUser } from '../../utils/getDataUser'
 import { useUserConnected } from '../../hooks/useUserConnected'
-
-import { SetState } from '../../types'
 import { useCloseModal } from '../../hooks/useCloseModal'
-import { DataGame } from '../../interfaces'
+
 import { initialDataGame } from '../../const/variables'
+
+import { DataUser, SetState } from '../../types'
+import { DataGame } from '../../interfaces'
 
 function ModalResultConnected({
   win,
@@ -41,7 +42,7 @@ function ModalResultConnected({
 
     const getResults = async () => {
       try {
-        let dataUser = getDataUser()
+        let dataUser: DataUser = getDataUser()
 
         if (!dataUser) throw { message: 'The token is not found' }
 
