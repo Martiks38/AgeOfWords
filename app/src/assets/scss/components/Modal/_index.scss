@@ -10,8 +10,8 @@
   flex-direction: column;
   width: 300px;
   min-height: 150px;
-  background-color: rgb(41 53 90);
-  border: solid thin rgb(55, 103, 246);
+  background-color: var(--background-gray-blue-color);
+  border: solid thin var(--light-blue-color);
   border-radius: 16px;
   font-size: 14px;
   line-height: normal;
@@ -20,15 +20,19 @@
   transform: translate(-50%, -50%);
 
   &_result {
-    background-color: #820910;
-    box-shadow: inset 0 0 8px 3px #000;
-    border: solid 3px #ec9c02;
+    background-color: var(--background-color-red);
+    box-shadow: inset 0 0 8px 3px var(--black-color);
+    border: solid 3px var(--yellow-border-color);
     border-bottom-style: ridge;
     border-right-style: ridge;
 
     &_letter {
       font-family: 'Roboto Slab';
-      @include bgText.backgroundText('top', 2.8rem, (#df950b 25%) #fff);
+      @include bgText.backgroundText(
+        'top',
+        2.8rem,
+        (var(--background-letter-orange-color) 25%) var(--white-color)
+      );
     }
   }
 
@@ -60,7 +64,7 @@
 
     &:hover .line,
     &:hover .line::before {
-      background-color: #b9872e;
+      background-color: var(--background-dark-orange-color);
     }
   }
 
@@ -70,7 +74,7 @@
     justify-content: space-between;
     width: 100%;
     padding: 1.5rem 1rem 0.8rem;
-    background-color: rgb(28, 32, 40);
+    background-color: var(--background-dark-blue-color);
 
     &__title {
       margin: 0;
@@ -95,7 +99,7 @@
   width: 100%;
   height: 4px;
   border-radius: 2px;
-  background-color: #999;
+  background-color: var(--gray-color);
   transform: rotate(45deg);
 
   &::before {
@@ -109,6 +113,6 @@
   }
 
   &_result {
-    background-color: #000006;
+    background-color: var(--black-transparent-6);
   }
 }

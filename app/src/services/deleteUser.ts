@@ -1,5 +1,6 @@
 import { FormEvent } from 'react'
-import { Results, SetState } from '../types'
+import { DataUser, Results, SetLocation, SetState } from '../types'
+import { getDataUser } from '../utils/getDataUser'
 
 export const accountDelete = async (
   event: FormEvent<HTMLFormElement>,
@@ -9,23 +10,14 @@ export const accountDelete = async (
     connected: boolean
     results: Results
   }>,
-  setLocation: (
-    to: string,
-    options?:
-      | {
-          replace?: boolean | undefined
-        }
-      | undefined
-  ) => void
+  setLocation: SetLocation
 ) => {
   try {
-    const data = window.localStorage.getItem('AWSession')
-
     event.preventDefault()
 
-    if (!data) return
+    const dataUser: DataUser = getDataUser()
 
-    const dataUser = JSON.parse(data)
+    if (!dataUser) return
 
     const options = {
       headers: { 'x-access-token': dataUser.token },

@@ -6,9 +6,10 @@ export const useCloseModal = (view: boolean, setView: SetState<boolean>) => {
     const checkCloseClick = (e: MouseEvent | KeyboardEvent) => {
       const { target } = e
 
-      if ((e as KeyboardEvent)?.key === 'Escape')
+      if ((e as KeyboardEvent)?.key === 'Escape') {
+        console.log('hi')
         return setView((prevView) => !prevView)
-
+      }
       if (
         (!(target as HTMLElement).closest('.modal') &&
           !(target as HTMLElement).closest('.button_stadistics')) ||

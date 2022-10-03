@@ -18,6 +18,52 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  --background-color-red: #820910;
+  --background-color-red2: #a81f1b;
+  --background-color-red3: #961818;
+  --background-dark-red-color: #710c0c74;
+  --background-color-blue: #1324e6;
+  --background-color-blue2: #12255d;
+  --background-dark-orange-color: #b9872e;
+  --background-light-blue-color: #3390e1;
+  --background-dark-blue-color: #171b27;
+  --background-dark-blue-color2: #0a147d;
+  --background-dark-blue-color3: #090f22;
+  --background-dark-blue-color4: #0b3254;
+  --background-dark-blue-color5: #01031c;
+  --background-dark-color: #0d0e13;
+  --background-gray-blue-color: #364561;
+  --background-light-orange-color: #d7ad64;
+  --background-light-orange-color2: #caa166;
+  --background-green-color: #099e0e;
+  --background-dark-yellow-color: #262620;
+  --background-letter-orange-color: #df950b;
+  --gray-border-color: #646464;
+  --yellow-border-color: #ec9c02;
+  --light-red-color: #ff6f68;
+  --light-red-color2: #f85149;
+  --red-color: #f82626;
+  --light-blue-color: #3767f6;
+  --dark-blue-color: #1a3585;
+  --gray-blue-color: #1f2d3f;
+  --gray-blue-color2: #283546;
+  --orange-color: #b8853b;
+  --orange-color2: #cd943e;
+  --orange-color3: #d5993f;
+  --orange-color4: #e7c067;
+  --light-orange-color: #ffde8f;
+  --light-orange-color2: #ecc874;
+  --brown-color: #663900;
+  --brown-color2: #a52a2a;
+  --white-color: #fff;
+  --white-color-t25: #ffffff40;
+  --gray-color: #999;
+  --black-color: #000;
+  --black-transparent-6: #0006;
+  --black-transparent-7: #0007;
+  --outline-form-color: #1199a8;
+  --background-gradient-color1: #146186;
+  --background-gradient-color2: #01375a;
 }
 
 *,
@@ -46,7 +92,10 @@ figure {
   width: 100%;
   z-index: -1;
 
-  @include linearGradient.linearGradient('bottom', (#283546 20%) #161925);
+  @include linearGradient.linearGradient(
+    'bottom',
+    (var(--gray-blue-color2) 20%) var(--background-dark-blue-color)
+  );
 }
 
 .g-center {
@@ -60,7 +109,7 @@ figure {
 }
 
 .link {
-  color: #e7c067;
+  color: var(--orange-color4);
 
   &:hover {
     text-decoration: underline;
@@ -72,7 +121,7 @@ figure {
 }
 
 .invalidField {
-  border-color: rgb(248, 38, 38);
+  border-color: var(--red-color);
 }
 
 .hidden {

@@ -20,6 +20,7 @@ function SignIn() {
   const [, setLocation] = useLocation()
 
   useLayoutEffect(() => {
+    // If there is a stored session, it redirects to Home.
     if (localStorage.getItem('AWSession')) return setLocation('/')
   }, [])
 

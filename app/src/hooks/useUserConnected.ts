@@ -1,5 +1,7 @@
 import { useContext } from 'react'
+
 import { UserCtx } from '../context/userConnect'
+
 import { UserConnectedContextState } from '../types'
 
 export const useUserConnected = () => {
